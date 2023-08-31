@@ -6,6 +6,7 @@
     "node": "18.x",
     "yarn": "1.x"
   },
+  "type": "module",
   "scripts": {
     "dev": "cross-env FORCE_COLOR=1 next dev",
     "build": "next build",
