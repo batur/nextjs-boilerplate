@@ -4,7 +4,7 @@
   "private": true,
   "engines": {
     "node": "18.x",
-    "yarn": "3.6.3"
+    "yarn": "1.x"
   },
   "scripts": {
     "dev": "cross-env FORCE_COLOR=1 next dev",
