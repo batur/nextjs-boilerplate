@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "18.x"
+    "node": "18.x",
+    "yarn": "3.6.3"
   },
   "scripts": {
     "dev": "cross-env FORCE_COLOR=1 next dev",
@@ -81,5 +82,6 @@
     "semantic-release": "^21.0.3",
     "storybook": "^7.0.18",
     "vitest": "^0.31.4"
-  }
+  },
+  "packageManager": "yarn@3.6.3"
 }
