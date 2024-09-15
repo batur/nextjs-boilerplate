@@ -6,7 +6,7 @@
   "bracketSameLine": true,
   "bracketSpacing": true,
   "singleQuote": true,
-  "trailingComma": "all",
+  "trailingComma": "none",
   "tabWidth": 2,
   "useTabs": false,
   "endOfLine": "auto"

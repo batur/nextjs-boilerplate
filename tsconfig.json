@@ -35,6 +35,17 @@
     },
     "typeRoots": ["./types"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/*.mjs", "next.config.mjs"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".storybook/**/*",
+    "next.config.js",
+    "eslint.config.js",
+    "tailwind.config.js",
+    "env.js",
+    "postcss.config.js"
+  ],
   "exclude": ["node_modules"]
 }
