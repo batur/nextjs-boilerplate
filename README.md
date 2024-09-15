@@ -9,14 +9,14 @@ Welcome to our Next.js boilerplate, a powerful foundation for building modern we
 - **TypeScript** - Superset of JavaScript that provides optional static typing and powerful tooling.
 - **ESLint** - Pluggable JavaScript linter that helps you avoid errors and enforce conventions in your styles.
 - **Prettier** - Opinionated code formatter that ensures your code is easy to read.
-- **Storybook** - Development environment for UI components that allows you to browse a component library, view the different states of each component, and interactively develop and test components.
-- **Vitest** - Go beyond testing with this next-generation frontend dev server
-- **Zod** - TypeScript-first schema declaration and validation library.
-- **Coupling Graph** - Developer tool for generating a visual graph of your module dependencies, finding circular dependencies, and give you other useful info.
-- **Bundle Analyzer** - Visualize the size of webpack output files with an interactive zoomable treemap.
-- **T3 Environment** - Environment variables management for Next.js applications.
-- **Cross Env** - Cross-platform environment variables management.
-- **Conventional Commits** - Specification for adding human and machine readable meaning to commit messages.
+- **Storybook** - Development environment for UI components that allows you to browse a component library, view the different states of each component, and interactively develop and test components. `NOT AVAILABLE RIGHT NOW`
+- **Vitest** - Go beyond testing with this next-generation frontend dev server `NOT AVAILABLE RIGHT NOW`
+- **Zod** - TypeScript-first schema declaration and validation library. `NOT AVAILABLE RIGHT NOW`
+- **Coupling Graph** - Developer tool for generating a visual graph of your module dependencies, finding circular dependencies, and give you other useful info. `NOT AVAILABLE RIGHT NOW`
+- **Bundle Analyzer** - Visualize the size of webpack output files with an interactive zoomable treemap. `NOT AVAILABLE RIGHT NOW`
+- **T3 Environment** - Environment variables management for Next.js applications. `NOT AVAILABLE RIGHT NOW`
+- **Cross Env** - Cross-platform environment variables management. `NOT AVAILABLE RIGHT NOW`
+- **Conventional Commits** - Specification for adding human and machine readable meaning to commit messages. `NOT AVAILABLE RIGHT NOW`
 
 ## Coupling Graph
 

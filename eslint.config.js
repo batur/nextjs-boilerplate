@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 
-import { fixupConfigRules, fixupPluginRules } from '@eslint/compat';
-import { FlatCompat } from '@eslint/eslintrc';
-import js from '@eslint/js';
-import typescriptEslint from '@typescript-eslint/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
-import react from 'eslint-plugin-react';
 import globals from 'globals';
+import react from 'eslint-plugin-react';
+import tsParser from '@typescript-eslint/parser';
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import js from '@eslint/js';
+import { FlatCompat } from '@eslint/eslintrc';
+import { fixupConfigRules, fixupPluginRules } from '@eslint/compat';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -121,7 +121,7 @@ export default [
       'import/order': [
         'error',
         {
-          alphabetize: { order: 'asc', caseInsensitive: true, orderImportKind: 'asc' },
+          alphabetize: { order: 'desc', caseInsensitive: true, orderImportKind: 'desc' },
           groups: ['builtin', 'external', 'internal', 'parent', ['index', 'sibling'], 'object'],
           'newlines-between': 'always',
           pathGroups: [
@@ -148,16 +148,6 @@ export default [
           ],
           distinctGroup: false,
           pathGroupsExcludedImportTypes: []
-        }
-      ],
-      'sort-imports': [
-        'error',
-        {
-          ignoreCase: false,
-          ignoreDeclarationSort: false,
-          ignoreMemberSort: false,
-          memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-          allowSeparatedGroups: false
         }
       ]
     }
