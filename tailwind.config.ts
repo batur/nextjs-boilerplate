@@ -1,4 +1,9 @@
 import type { Config } from 'tailwindcss';
+import typography from '@tailwindcss/typography';
+import forms from '@tailwindcss/forms';
+import containerQueries from '@tailwindcss/container-queries';
+import aspectRatio from '@tailwindcss/aspect-ratio';
+
 
 const config: Config = {
   content: [
@@ -14,6 +19,11 @@ const config: Config = {
       }
     }
   },
-  plugins: []
+  plugins: [
+    typography,
+    forms,
+    containerQueries,
+    aspectRatio
+  ]
 };
 export default config;
