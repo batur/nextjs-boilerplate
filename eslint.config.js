@@ -39,29 +39,24 @@ export default [
       react: fixupPluginRules(react),
       '@typescript-eslint': fixupPluginRules(typescriptEslint)
     },
-
     languageOptions: {
       globals: {
         ...globals.browser,
         ...globals.node
       },
-
       parser: tsParser,
       ecmaVersion: 'latest',
       sourceType: 'module',
-
       parserOptions: {
         tsconfigRootDir: '.',
         project: './tsconfig.json'
       }
     },
-
     settings: {
       next: {
         rootDir: '.'
       }
     },
-
     rules: {
       'no-console': 'error',
       'import/prefer-default-export': 'off',
@@ -143,12 +138,26 @@ export default [
               group: 'builtin'
             },
             {
-              pattern: 'react-native',
+              pattern: 'next',
+              group: 'builtin'
+            },
+            {
+              pattern: 'next/**',
               group: 'builtin'
             }
           ],
           distinctGroup: false,
           pathGroupsExcludedImportTypes: []
+        }
+      ],
+      'sort-imports': [
+        'error',
+        {
+          ignoreCase: false,
+          ignoreDeclarationSort: false,
+          ignoreMemberSort: false,
+          memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+          allowSeparatedGroups: false
         }
       ]
     }

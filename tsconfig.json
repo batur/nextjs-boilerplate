@@ -23,17 +23,9 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@api": ["api"],
-      "@assets/*": ["assets/*"],
-      "@components": ["components"],
-      "@constants": ["constants"],
-      "@hooks/*": ["hooks/*"],
-      "@hooks": ["hooks"],
-      "@lib": ["lib"],
-      "@styles/*": ["styles/*"],
-      "@styles": ["styles"]
-    },
-    "typeRoots": ["./types"]
+      "@/core": ["./core"],
+      "@/core/*": ["./core/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
