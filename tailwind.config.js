@@ -1,6 +1,10 @@
 /** @type {import(tailwindcss).Config} */
 
-/* eslint-disable @typescript-eslint/no-require-imports */
+import aspectRatio from '@tailwindcss/aspect-ratio';
+import containerQueries from '@tailwindcss/container-queries';
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -18,10 +22,5 @@ module.exports = {
   corePlugins: {
     aspectRatio: false
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/container-queries')
-  ]
+  plugins: [aspectRatio, containerQueries, forms, typography]
 };
