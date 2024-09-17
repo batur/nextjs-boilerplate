@@ -74,11 +74,19 @@ export default [
         'error',
         {
           selector: 'default',
-          format: ['camelCase']
+          format: ['PascalCase']
+        },
+        {
+          selector: 'import',
+          format: ['camelCase', 'PascalCase']
         },
         {
           selector: 'variable',
           format: ['camelCase', 'PascalCase', 'UPPER_CASE']
+        },
+        {
+          selector: 'property',
+          format: ['camelCase']
         },
         {
           selector: 'typeLike',

@@ -1,17 +1,9 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Next.js",
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -25,26 +17,18 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
-      "@/core": [
-        "./core"
-      ],
-      "@/core/*": [
-        "./core/*"
-      ]
+      "@/*": ["./*"]
     }
   },
   "include": [
+    "eslint.config.js",
+    "postcss.config.js",
+    "next.config.js",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "next.config.mjs",
-    "eslint.config.js",
-    "postcss.config.mjs",
+    ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
