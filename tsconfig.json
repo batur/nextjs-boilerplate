@@ -19,7 +19,9 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@core": ["./core/components"]
+      "@app/*": ["./app/*"],
+      "@core": ["./core"],
+      "@core/components": ["./core/components"]
     }
   },
   "include": [
@@ -27,6 +29,7 @@
     "postcss.config.js",
     "next.config.js",
     "next-env.d.ts",
+    ".storybook/**/*",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
