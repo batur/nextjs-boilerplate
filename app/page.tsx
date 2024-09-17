@@ -1,15 +1,14 @@
 'use client';
+import useCounter from '@/core/stores/counter';
 import { Button } from '@/core/components';
 
 const Home = () => {
-  const testAction = () => {
-    // eslint-disable-next-line no-console
-    console.log('Clicked');
-  };
+  const { count, increment } = useCounter();
+
   return (
     <div>
       <h1>Hello World</h1>
-      <Button onClick={testAction}>Click me</Button>
+      <Button onClick={increment}>{count}</Button>
     </div>
   );
 };

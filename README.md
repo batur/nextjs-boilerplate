@@ -12,7 +12,10 @@ Welcome to our Next.js boilerplate, a powerful foundation for building modern we
 - **Storybook** - Development environment for UI components that allows you to browse a component library, view the different states of each component, and interactively develop and test components.
 - **Vitest** - Go beyond testing with this next-generation frontend dev server
 - **Playwright** - End-to-end testing library for web applications.
+- **React Hook Form** - Performant, flexible, and extensible forms with easy-to-use validation.
 - **Zod** - TypeScript-first schema declaration and validation library.
+- **Tanstack Query** - Data fetching and caching library that provides tools for managing, caching, synchronizing, and updating server state.
+- **Zustand** - Small, fast, and scalable state management library that provides a simple and fast way to create global state.
 - **Coupling Graph** - Developer tool for generating a visual graph of your module dependencies, finding circular dependencies, and give you other useful info.
 - **Bundle Analyzer** - Visualize the size of webpack output files with an interactive zoomable treemap.
 - **T3 Environment** - Environment variables management for Next.js applications.

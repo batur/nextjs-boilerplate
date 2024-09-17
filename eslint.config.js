@@ -100,6 +100,10 @@ export default [
           selector: 'parameter',
           format: ['camelCase'],
           leadingUnderscore: 'allow'
+        },
+        {
+          selector: 'method',
+          format: ['camelCase']
         }
       ],
       'consistent-return': 'warn',

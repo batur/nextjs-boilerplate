@@ -21,7 +21,7 @@
       "@/*": ["./*"],
       "@app/*": ["./app/*"],
       "@core": ["./core"],
-      "@core/components": ["./core/components"]
+      "@core/*": ["./core/*"]
     }
   },
   "include": [
