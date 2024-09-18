@@ -1,7 +1,7 @@
 import { fn } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button, ButtonProps } from './Button';
+import { Button, ButtonProps } from '.';
 
 const TestButton = (
   props: ButtonProps & {

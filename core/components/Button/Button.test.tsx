@@ -3,7 +3,7 @@ import React from 'react';
 import { expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
-import { Button } from './Button';
+import { Button } from '.';
 
 test('Button Component', () => {
   render(<Button variant={'default'}>Click Me</Button>);
