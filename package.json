@@ -6,7 +6,7 @@
     "node": "22.x"
   },
   "resolutions": {
-    "jackspeak": "2.1.1",
+    "jackspeak": "3.1.2",
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2"
   },
