@@ -1,3 +1,5 @@
+import { NextResponse } from 'next/server';
+
 export const config = {
   matcher: [
     /*
@@ -10,3 +12,7 @@ export const config = {
     '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
   ],
 };
+
+export default function middleware(request: NextResponse) {
+  return NextResponse.next();
+}
