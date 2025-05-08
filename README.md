@@ -22,4 +22,8 @@ Welcome to our Next.js boilerplate, a powerful foundation for building modern we
 
 ## Coupling Graph
 
+The coupling graph is a developer tool for generating a visual graph of your module dependencies, finding circular dependencies, and giving you other useful info. It helps you understand the structure of your codebase and identify potential issues.
+
+Before running the coupling graph, make sure to install the required dependencies by running in this [link](https://graphviz.org/download/)
+
 ![Coupling Graph](./graph.svg)
