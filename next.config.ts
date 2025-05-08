@@ -1,10 +1,12 @@
-import withBundleAnalyzer from '@next/bundle-analyzer';
-import withPlugins from 'next-compose-plugins';
-import { env } from './env.mjs';
+// import withBundleAnalyzer from '@next/bundle-analyzer';
+// import withPlugins from 'next-compose-plugins';
+// import { env } from './env.mjs';
+// These are the plugins we want to use but it is not working properly right now
+// TODO: Fix this
 
 /** @type {import('next').NextConfig} */
 
-const nextConfig = withPlugins([[withBundleAnalyzer({ enabled: env.ANALYZE })]], {
+const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
   eslint: {
@@ -17,6 +19,6 @@ const nextConfig = withPlugins([[withBundleAnalyzer({ enabled: env.ANALYZE })]],
   cleanDistDir: true,
   compress: true,
   productionBrowserSourceMaps: true,
-});
+};
 
 export default nextConfig;

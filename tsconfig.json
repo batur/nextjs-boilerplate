@@ -23,18 +23,17 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@api": ["api"],
-      "@assets/*": ["assets/*"],
-      "@components": ["components"],
-      "@constants": ["constants"],
-      "@hooks/*": ["hooks/*"],
-      "@hooks": ["hooks"],
-      "@lib": ["lib"],
-      "@styles/*": ["styles/*"],
-      "@styles": ["styles"]
+      "@/*": ["./*"],
+      "@components": ["./components/"],
+      "@components/*": ["./components/*"],
+      "@hooks": ["./hooks/"],
+      "@lib": ["./lib/"],
+      "@styles/*": ["./styles/"],
+      "@public/*": ["./public/"],
+      "@types/*": ["./types/"]
     },
     "typeRoots": ["./types"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/*.mjs", "next.config.mjs"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/*.mjs", "next.config.ts"],
   "exclude": ["node_modules"]
 }

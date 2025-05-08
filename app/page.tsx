@@ -1,12 +1,13 @@
-import { Button } from 'components/ui';
+'use client';
+
+import { Button } from '@components/ui';
 
 export default function Home() {
   return (
-    <div>
-      <h1 className='text-red-500'>Hello</h1>
-      <Button>
-        <p>Button</p>
+    <>
+      <Button onClick={() => alert('Hello')}>
+        <span className='text-zinc-100'>Hello</span>
       </Button>
-    </div>
+    </>
   );
 }
