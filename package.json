@@ -26,10 +26,12 @@
     "postinstall": "patch-package -y",
     "preinstall": "npx only-allow yarn",
     "coupling-graph": "npx madge --extensions js,jsx,ts,tsx,css,scss,md,mdx,d.ts ./ --exclude '.next|tailwind.config.js|postcss.config.js|next.config.js|next-env.d.ts|README.md|.storybook/|.eslintrc' --image graph.svg",
-    "mv:ui": "bash ./scripts/component-handler.sh"
+    "mv:ui": "bash ./scripts/component-handler.sh",
+    "fix:imports": "bash ./scripts/component-import-fix.sh"
   },
   "dependencies": {
     "@next/bundle-analyzer": "15.3.1",
+    "@radix-ui/react-accordion": "^1.2.10",
     "@radix-ui/react-slot": "^1.2.2",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.0",

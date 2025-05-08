@@ -1,70 +1,87 @@
 #!/usr/bin/env bash
-# move-component.sh  (v3)
-# Usage: ./move-component.sh <ComponentName>
+#
+# wrap-ui-components.sh
+#
+# Walks through src/components/ui/
+#  • finds every *.tsx|*.ts that sits directly in that folder
+#  • converts   foo-bar.tsx  →  FooBar/index.tsx
+#  • keeps Git history when possible
+#  • appends    export { FooBar } from './FooBar';   to the barrel
+#
+# Safe to run repeatedly – already-processed files are ignored.
 
 set -euo pipefail
 
 ###############################################################################
 # CONFIG
 ###############################################################################
-[[ $# -eq 1 ]] || { echo "Usage: $0 <ComponentName>"; exit 1; }
-
-COMPONENT="$1"                             # e.g. Button
-BASE_DIR="components/ui"               # adjust if different
-BARREL="$BASE_DIR/index.ts"                # barrel file path
-
-export_line="export { $COMPONENT } from './$COMPONENT';"
+BASE_DIR="components/ui"            # change if your tree differs
+BARREL="$BASE_DIR/index.ts"
 
 ###############################################################################
-# SHORT-CIRCUIT IF COMPONENT ALREADY PRESENT
+# UTIL: kebab/underscore/camel → PascalCase  (alert → Alert, date-picker → DatePicker)
 ###############################################################################
-if [[ -d "$BASE_DIR/$COMPONENT" ]]; then
-  echo "⚠️ Folder '$BASE_DIR/$COMPONENT' already exists - aborting."
-  exit 0
-fi
+to_pascal() {
+  local raw="$1"
+  local IFS='-_'
+  read -ra parts <<< "$raw"
+  local out=""
+  for p in "${parts[@]}"; do
+    first_char=$(printf '%s' "${p:0:1}" | tr '[:lower:]' '[:upper:]')
+    out+="${first_char}${p:1}"
+  done
+  printf '%s' "$out"
+}
 
-if [[ -f $BARREL ]] && grep -Fxq "$export_line" "$BARREL"; then
-  echo "⚠️ Barrel already exports '$COMPONENT' - aborting."
-  exit 0
-fi
+###############################################################################
+# PREP
+###############################################################################
+touch "$BARREL"                         # create barrel if missing
+
+printf "🔍 Scanning %s …\n\n" "$BASE_DIR"
 
 ###############################################################################
-# LOCATE SOURCE FILE  (button.tsx  or  button.ts)
+# MAIN LOOP
 ###############################################################################
-lowercase="$(echo "$COMPONENT" | tr '[:upper:]' '[:lower:]')"
-for ext in tsx ts; do
-  candidate="$BASE_DIR/$lowercase.$ext"
-  [[ -f $candidate ]] && SRC="$candidate" && SRC_EXT="$ext" && break
+find "$BASE_DIR" -maxdepth 1 -type f \( -name '*.tsx' -o -name '*.ts' \) ! -name 'index.ts' | while read -r SRC; do
+  filename=$(basename "$SRC")           # e.g. alert.tsx
+  base="${filename%.*}"                 # alert
+  ext="${filename##*.}"                 # tsx | ts
+  component=$(to_pascal "$base")        # Alert
+
+  # Skip if folder already exists (already wrapped)
+  if [[ -d "$BASE_DIR/$component" ]]; then
+    printf "⏭  %s — already wrapped\n" "$component"
+    continue
+  fi
+
+  # Skip if barrel already exports it
+  export_line="export { $component } from './$component';"
+  if grep -Fxq "$export_line" "$BARREL"; then
+    printf "⏭  %s — already in barrel\n" "$component"
+    continue
+  fi
+
+  # ------- move & rename ----------------------------------------------------
+  dest_dir="$BASE_DIR/$component"
+  dest="$dest_dir/index.$ext"
+  mkdir -p "$dest_dir"
+
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    if git ls-files --error-unmatch "$SRC" &>/dev/null; then
+      git mv "$SRC" "$dest"
+    else
+      mv "$SRC" "$dest"
+      git add "$dest"
+    fi
+  else
+    mv "$SRC" "$dest"
+  fi
+  printf "✅  Wrapped %s  →  %s\n" "$filename" "$component/"
+
+  # ------- update barrel ----------------------------------------------------
+  echo "$export_line" >> "$BARREL"
+  printf "➕ Added export: %s\n\n" "$export_line"
 done
 
-[[ ${SRC:-} ]] || { echo "❌ No file $lowercase.tsx|ts found in $BASE_DIR"; exit 2; }
-
-###############################################################################
-# CREATE TARGET DIR AND MOVE (KEEP GIT HISTORY WHEN POSSIBLE)
-###############################################################################
-DEST_DIR="$BASE_DIR/$COMPONENT"
-mkdir -p "$DEST_DIR"
-DEST="$DEST_DIR/index.$SRC_EXT"
-
-if git rev-parse --is-inside-work-tree &>/dev/null; then
-  if git ls-files --error-unmatch "$SRC" &>/dev/null; then
-    git mv "$SRC" "$DEST"
-  else
-    mv "$SRC" "$DEST"
-    git add "$DEST"
-  fi
-else
-  mv "$SRC" "$DEST"
-fi
-
-echo "✅ Moved: $SRC → $DEST"
-
-###############################################################################
-# UPDATE THE BARREL FILE
-###############################################################################
-touch "$BARREL"
-
-if ! grep -Fxq "$export_line" "$BARREL"; then
-  echo "$export_line" >> "$BARREL"
-  echo "✅ Added to barrel: $export_line"
-fi
+printf "\n🎉  Done. Barrel file is up to date.\n"
