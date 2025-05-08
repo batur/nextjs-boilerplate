@@ -27,7 +27,9 @@
     "preinstall": "npx only-allow yarn",
     "coupling-graph": "npx madge --extensions js,jsx,ts,tsx,css,scss,md,mdx,d.ts ./ --exclude '.next|tailwind.config.js|postcss.config.js|next.config.js|next-env.d.ts|README.md|.storybook/|.eslintrc' --image graph.svg",
     "mv:ui": "bash ./scripts/component-handler.sh",
-    "fix:imports": "bash ./scripts/component-import-fix.sh"
+    "fix:imports": "bash ./scripts/component-import-fix.sh",
+    "docker:build": "docker build -t nextjs-structure .",
+    "docker:run": "docker run -p 3000:3000 nextjs-structure"
   },
   "dependencies": {
     "@next/bundle-analyzer": "15.3.1",
@@ -98,6 +100,7 @@
     "semantic-release": "^24.1.0",
     "storybook": "^8.6.12",
     "tw-animate-css": "^1.2.8",
+    "typescript-eslint": "^8.32.0",
     "vitest": "^2.0.5"
   }
 }
