@@ -6,10 +6,12 @@ Welcome to our Next.js boilerplate, a powerful foundation for building modern we
 
 - **Next.js** - Minimalistic framework for server-rendered React applications.
 - **Tailwind CSS** - Highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs.
+- **Shadcn** - A set of components and hooks that are designed to be composable, customizable, and accessible.
 - **TypeScript** - Superset of JavaScript that provides optional static typing and powerful tooling.
 - **ESLint** - Pluggable JavaScript linter that helps you avoid errors and enforce conventions in your styles.
 - **Prettier** - Opinionated code formatter that ensures your code is easy to read.
 - **Storybook** - Development environment for UI components that allows you to browse a component library, view the different states of each component, and interactively develop and test components.
+- **Tanstack Query** - Powerful data-fetching library for React applications that simplifies data management and synchronization.
 - **Vitest** - Go beyond testing with this next-generation frontend dev server
 - **Zod** - TypeScript-first schema declaration and validation library.
 - **Coupling Graph** - Developer tool for generating a visual graph of your module dependencies, finding circular dependencies, and give you other useful info.
