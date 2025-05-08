@@ -2908,6 +2908,18 @@
     lodash.merge "^4.6.2"
     postcss-selector-parser "6.0.10"
 
+"@tanstack/query-core@5.75.5":
+  version "5.75.5"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.75.5.tgz#198c27c21b5d15aad09167af8a021f214e194d4b"
+  integrity sha512-kPDOxtoMn2Ycycb76Givx2fi+2pzo98F9ifHL/NFiahEDpDwSVW6o12PRuQ0lQnBOunhRG5etatAhQij91M3MQ==
+
+"@tanstack/react-query@^5.75.5":
+  version "5.75.5"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.75.5.tgz#650a6b58c7bcd4c33062426e05c4467571148a4f"
+  integrity sha512-QrLCJe40BgBVlWdAdf2ZEVJ0cISOuEy/HKupId1aTKU6gPJZVhSvZpH+Si7csRflCJphzlQ77Yx6gUxGW9o0XQ==
+  dependencies:
+    "@tanstack/query-core" "5.75.5"
+
 "@testing-library/dom@10.4.0":
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-10.4.0.tgz#82a9d9462f11d240ecadbf406607c6ceeeff43a8"
